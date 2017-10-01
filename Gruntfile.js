@@ -5,6 +5,17 @@ module.exports = grunt => {
 
   grunt.initConfig({
     pkg: package,
+    
+    tslint: {
+      options: {
+        configuration: 'tslint.json'
+      },
+      files: {
+        src: [
+          'src/**/*.ts'
+        ]
+      }
+    },
 
     ts: {
       options: tsconfig.compilerOptions,
@@ -13,6 +24,7 @@ module.exports = grunt => {
         outDir: 'dist/'
       }
     },
+
 
     browserify: {
       build: {
@@ -36,12 +48,14 @@ module.exports = grunt => {
 
   });
 
+  grunt.loadNpmTasks('grunt-tslint');
   grunt.loadNpmTasks('grunt-ts');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.registerTask('build', [
+    'tslint',
     'ts',
     'browserify',
     'clean',

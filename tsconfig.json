@@ -1,0 +1,11 @@
+{
+
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "sourceMap": false,
+    "rootDir": "src"
+  }
+
+}

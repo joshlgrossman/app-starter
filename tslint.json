@@ -1,25 +1,25 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
-    ],
-    "jsRules": {},
-    "rules": {
-        "no-bitwise": false,
-        "no-conditional-assignment": false,
-        "no-consecutive-blank-lines": false,
-        "no-console": false,
-        "no-string-literal": false,
-        "one-variable-per-declaration": false,
-        "trailing-comma": {
-            "options": {
-                "multiline": "ignore",
-                "singleline": "ignore"
-            }
-        },
-        "quotemark": {
-            "options": ["single"]
-        }
-    },
-    "rulesDirectory": []
+  "defaultSeverity": "error",
+  "extends": [
+      "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+      "no-bitwise": false,
+      "no-conditional-assignment": false,
+      "no-consecutive-blank-lines": false,
+      "no-console": false,
+      "no-string-literal": false,
+      "one-variable-per-declaration": false,
+      "trailing-comma": {
+          "options": {
+              "multiline": "ignore",
+              "singleline": "ignore"
+          }
+      },
+      "quotemark": {
+          "options": ["single"]
+      }
+  },
+  "rulesDirectory": []
 }

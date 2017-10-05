@@ -8,12 +8,24 @@ module.exports = grunt => {
     
     tslint: {
       options: {
-        configuration: 'tslint.json'
+        configuration: 'tslint.json',
+        fix: true
       },
       files: {
         src: [
-          'src/**/*.ts'
+          'src/**/*.ts',
+          '!src**/*.spec.ts'
         ]
+      }
+    },
+
+    mochaTest: {
+      build: {
+        options: {
+          reporter: 'spec',
+          require: 'ts-node/register'
+        },
+        src: ['src/**/*.spec.ts']
       }
     },
 
@@ -29,7 +41,7 @@ module.exports = grunt => {
     browserify: {
       build: {
         files: {
-          'dist/bundle.js': 'dist/main.js'
+          'dist/bundle.js': 'dist/index.js'
         }
       }
     },
@@ -48,17 +60,27 @@ module.exports = grunt => {
 
   });
 
+  grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-tslint');
   grunt.loadNpmTasks('grunt-ts');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('build', [
+  grunt.registerTask('test', [
     'tslint',
+    'mochaTest'
+  ]);
+
+  grunt.registerTask('make', [
     'ts',
     'browserify',
-    'clean',
+    'clean'
+  ]);
+
+  grunt.registerTask('build', [
+    'test',
+    'make',
     'uglify'
   ]);
 

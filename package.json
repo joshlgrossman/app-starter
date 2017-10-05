@@ -1,5 +1,5 @@
 {
-  "name": "game",
+  "name": "typescript-starter",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -28,8 +28,8 @@
   },
   "scripts": {
     "build": "node ./node_modules/.bin/grunt build",
-    "test": "node ./node_modules/.bin/grunt test",
-    "make": "node ./node_modules/.bin/grunt make"
+    "build:dev": "node ./node_modules/.bin/grunt build:dev",
+    "test": "node ./node_modules/.bin/grunt test"
   },
   "keywords": [],
   "author": "",

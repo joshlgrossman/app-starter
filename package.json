@@ -16,7 +16,7 @@
     "grunt-browserify": "^5.2.0",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-uglify": "^3.1.0",
-    "grunt-mocha-test": "^0.13.2",
+    "grunt-mocha-test": "^0.13.3",
     "grunt-ts": "^6.0.0-beta.16",
     "grunt-tslint": "^5.0.1",
     "mocha": "^3.5.3",
@@ -28,9 +28,8 @@
   },
   "scripts": {
     "build": "node ./node_modules/.bin/grunt build",
-    "lint": "./node_modules/.bin/tslint --fix ./src/**/*.ts",
-    "mocha": "./node_modules/.bin/mocha --compilers ts:ts-node/register ./src/**/*.spec.ts",
-    "test": "npm run lint && npm run mocha"
+    "test": "node ./node_modules/.bin/grunt test",
+    "make": "node ./node_modules/.bin/grunt make"
   },
   "keywords": [],
   "author": "",

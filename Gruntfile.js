@@ -5,7 +5,7 @@ module.exports = grunt => {
 
   grunt.initConfig({
     pkg: package,
-    
+
     tslint: {
       options: {
         configuration: 'tslint.json',
@@ -20,38 +20,51 @@ module.exports = grunt => {
     },
 
     mochaTest: {
-      build: {
-        options: {
-          reporter: 'spec',
-          require: 'ts-node/register'
-        },
-        src: ['src/**/*.spec.ts']
-      }
+      options: {
+        reporter: 'spec',
+        require: 'ts-node/register'
+      },
+      src: ['src/**/*.spec.ts']
     },
 
     ts: {
-      options: tsconfig.compilerOptions,
-      build: {
+      dist: {
+        options: tsconfig.compilerOptions,
         src: ['src/**/*.ts'],
         outDir: 'dist/'
+      },
+      dev: {
+        options: { 
+          ... tsconfig.compilerOptions, 
+          inlineSourceMap: true,
+          inlineSources: true
+        },
+        src: ['src/**/*.ts'],
+        outDir: 'dist/',
       }
     },
 
 
     browserify: {
-      build: {
+      dist: {
         files: {
           'dist/bundle.js': 'dist/index.js'
         }
+      },
+      dev: {
+        files: {
+          'dist/bundle.js': 'dist/index.js'
+        },
+        debug: true
       }
     },
 
     clean: {
-      build: ['dist/**/*.js', '!dist/bundle.js']
+      dist: ['dist/**/*.js', '!dist/bundle.js']
     },
 
     uglify: {
-      build: {
+      dist: {
         files: {
           'dist/bundle.js': 'dist/bundle.js'
         }
@@ -72,16 +85,18 @@ module.exports = grunt => {
     'mochaTest'
   ]);
 
-  grunt.registerTask('make', [
-    'ts',
-    'browserify',
-    'clean'
+  grunt.registerTask('build:dev', [
+    'test',
+    'ts:dev',
+    'browserify:dev'
   ]);
 
   grunt.registerTask('build', [
     'test',
-    'make',
-    'uglify'
+    'ts:dist',
+    'browserify:dist',
+    'clean:dist',
+    'uglify:dist'
   ]);
 
 };

@@ -44,6 +44,20 @@ module.exports = grunt => {
       }
     },
 
+    concat: {
+      options: {
+        separator: ';',
+        banner: 'require(\'core-js/library/es6\');'
+      },
+      dist: {
+        src: ['dist/index.js'],
+        dest: 'dist/index.js'
+      },
+      dev: {
+        src: ['dist/index.js'],
+        dest: 'dist/index.js'
+      },
+    },
 
     browserify: {
       dist: {
@@ -76,6 +90,7 @@ module.exports = grunt => {
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-tslint');
   grunt.loadNpmTasks('grunt-ts');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -88,12 +103,14 @@ module.exports = grunt => {
   grunt.registerTask('build:dev', [
     'test',
     'ts:dev',
+    'concat:dev',
     'browserify:dev'
   ]);
 
   grunt.registerTask('build', [
     'test',
     'ts:dist',
+    'concat:dist',
     'browserify:dist',
     'clean:dist',
     'uglify:dist'

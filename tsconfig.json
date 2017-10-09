@@ -1,6 +1,7 @@
 {
 
   "compilerOptions": {
+    "lib": ["es2016", "dom"],
     "experimentalDecorators": true,
     "noImplicitAny": true,
     "removeComments": true,

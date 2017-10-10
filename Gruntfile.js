@@ -22,7 +22,10 @@ module.exports = grunt => {
     mochaTest: {
       options: {
         reporter: 'spec',
-        require: 'ts-node/register'
+        require: [
+          'ts-node/register',
+          './polyfills.js'
+        ]
       },
       src: ['src/**/*.spec.ts']
     },
@@ -47,14 +50,13 @@ module.exports = grunt => {
     concat: {
       options: {
         separator: ';',
-        banner: 'require(\'core-js/library/es6\');'
       },
       dist: {
-        src: ['dist/index.js'],
+        src: ['./polyfills.js','dist/index.js'],
         dest: 'dist/index.js'
       },
       dev: {
-        src: ['dist/index.js'],
+        src: ['./polyfills.js','dist/index.js'],
         dest: 'dist/index.js'
       },
     },

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "core-js": "^2.5.1"
+    "core-js": "^2.5.1",
+    "inversify": "^4.3.0",
+    "reflect-metadata": "^0.1.10"
   },
   "devDependencies": {
     "@types/chai": "^4.0.4",

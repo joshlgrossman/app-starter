@@ -1,13 +1,22 @@
 {
 
   "compilerOptions": {
-    "lib": ["es2016", "dom"],
+    "lib": ["es6", "dom"],
+    "types": ["reflect-metadata"],
+    "module": "commonjs",
+    "moduleResolution": "node",
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "noImplicitAny": true,
     "removeComments": true,
     "sourceMap": false,
+    "downlevelIteration": true,
     "rootDir": "./src"
   },
+
+  "include": [
+    "src/**/*"
+  ],
 
   "exclude": [
     "node_modules",

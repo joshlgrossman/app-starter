@@ -48,7 +48,7 @@ module.exports = grunt => {
       },
       dev: {
         options: { 
-          ... tsconfig.compilerOptions, 
+          ...tsconfig.compilerOptions, 
           inlineSourceMap: true,
           inlineSources: true
         },

@@ -2,14 +2,24 @@ module.exports = grunt => {
 
   const package = grunt.file.readJSON('package.json');
   const tsconfig = grunt.file.readJSON('tsconfig.json');
+  const prettier = grunt.file.readJSON('prettier.json');
+  const tslint = grunt.file.readJSON('tslint.json');
 
   grunt.initConfig({
     pkg: package,
 
+    prettier: {
+      options: {
+        ...prettier
+      },
+      files: {
+        src: ['src/**/*.ts']
+      }
+    },
+
     tslint: {
       options: {
-        configuration: 'tslint.json',
-        fix: true
+        ...tslint
       },
       files: {
         src: [
@@ -96,8 +106,10 @@ module.exports = grunt => {
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-prettier');
 
   grunt.registerTask('test', [
+    'prettier',
     'tslint',
     'mochaTest'
   ]);

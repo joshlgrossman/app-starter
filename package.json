@@ -2,7 +2,15 @@
   "name": "typescript-starter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "build": "node ./node_modules/.bin/grunt build",
+    "build:dev": "node ./node_modules/.bin/grunt build:dev",
+    "test": "node ./node_modules/.bin/grunt test"
+  },
   "dependencies": {
     "core-js": "^2.5.1",
     "inversify": "^4.3.0",
@@ -32,13 +40,5 @@
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
     "typescript": "^2.5.3"
-  },
-  "scripts": {
-    "build": "node ./node_modules/.bin/grunt build",
-    "build:dev": "node ./node_modules/.bin/grunt build:dev",
-    "test": "node ./node_modules/.bin/grunt test"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

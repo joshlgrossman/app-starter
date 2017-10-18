@@ -1,7 +1,7 @@
 module.exports = grunt => {
 
+  const webpack = require('./webpack.config');
   const package = grunt.file.readJSON('package.json');
-  const tsconfig = grunt.file.readJSON('tsconfig.json');
   const prettier = grunt.file.readJSON('prettier.json');
   const tslint = grunt.file.readJSON('tslint.json');
 
@@ -34,78 +34,27 @@ module.exports = grunt => {
         reporter: 'spec',
         require: [
           'ts-node/register',
-          './polyfills.js'
+          './src/polyfills.ts'
         ]
       },
       src: ['src/**/*.spec.ts']
     },
 
-    ts: {
-      dist: {
-        options: tsconfig.compilerOptions,
-        src: ['src/**/*.ts'],
-        outDir: 'dist/'
-      },
-      dev: {
-        options: { 
-          ...tsconfig.compilerOptions, 
-          inlineSourceMap: true,
-          inlineSources: true
-        },
-        src: ['src/**/*.ts'],
-        outDir: 'dist/',
-      }
-    },
-
-    concat: {
-      options: {
-        separator: ';',
-      },
-      dist: {
-        src: ['./polyfills.js','dist/index.js'],
-        dest: 'dist/index.js'
-      },
-      dev: {
-        src: ['./polyfills.js','dist/index.js'],
-        dest: 'dist/index.js'
-      },
-    },
-
-    browserify: {
-      dist: {
-        files: {
-          'dist/bundle.js': 'dist/index.js'
-        }
-      },
-      dev: {
-        files: {
-          'dist/bundle.js': 'dist/index.js'
-        },
-        debug: true
-      }
+    webpack: {
+      dev: webpack.dev,
+      dist: webpack.dist
     },
 
     clean: {
-      dist: ['dist/**/*.js', '!dist/bundle.js']
+      dist: ['dist/**/*.js', '!dist/bundle.js', '!dist/app.js', '!dist/polyfills.js']
     },
-
-    uglify: {
-      dist: {
-        files: {
-          'dist/bundle.js': 'dist/bundle.js'
-        }
-      }
-    }
 
   });
 
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-tslint');
-  grunt.loadNpmTasks('grunt-ts');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-prettier');
 
   grunt.registerTask('test', [
@@ -116,18 +65,13 @@ module.exports = grunt => {
 
   grunt.registerTask('build:dev', [
     'test',
-    'ts:dev',
-    'concat:dev',
-    'browserify:dev'
+    'webpack:dev'
   ]);
 
   grunt.registerTask('build', [
     'test',
-    'ts:dist',
-    'concat:dist',
-    'browserify:dist',
-    'clean:dist',
-    'uglify:dist'
+    'webpack:dist',
+    'clean:dist'
   ]);
 
 };

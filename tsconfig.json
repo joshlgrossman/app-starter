@@ -14,7 +14,9 @@
     "removeComments": true,
     "sourceMap": false,
     "downlevelIteration": true,
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "jsx": "react",
+    "jsxFactory": "h"
   },
 
   "include": [

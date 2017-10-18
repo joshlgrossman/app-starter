@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
   entry: {
-    index: './src/index.ts',
+    index: './src/index.tsx',
     polyfills: './src/polyfills.ts'
   },
   output: {
@@ -18,7 +18,8 @@ const config = {
 
   module: {
     rules: [
-      { test: /\.ts/, use: 'ts-loader' }
+      { test: /\.ts$/, loader: 'ts-loader' },
+      { test: /\.tsx$/, loader: 'babel-loader!ts-loader' }
     ]
   },
 

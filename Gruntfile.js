@@ -46,7 +46,7 @@ module.exports = grunt => {
     },
 
     clean: {
-      dist: ['dist/**/*.js', '!dist/bundle.js', '!dist/app.js', '!dist/polyfills.js']
+      dist: ['dist/**/*.js', '!dist/index.js', '!dist/polyfills.js']
     },
 
   });

@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
   entry: {
-    app: './src/index.ts',
+    index: './src/index.ts',
     polyfills: './src/polyfills.ts'
   },
   output: {

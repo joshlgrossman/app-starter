@@ -11,7 +11,10 @@ const extractLess = new ExtractTextPlugin({
 const config = {
   entry: {
     index: './src/index.tsx',
-    polyfills: './src/polyfills.ts'
+    polyfills: [
+      'core-js/library/es6',
+      'reflect-metadata'
+    ]
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

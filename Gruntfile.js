@@ -34,7 +34,7 @@ module.exports = grunt => {
         reporter: 'spec',
         require: [
           'ts-node/register',
-          './src/polyfills.ts'
+          'reflect-metadata'
         ]
       },
       src: ['src/**/*.spec.ts']

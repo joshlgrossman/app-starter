@@ -25,7 +25,6 @@
     "@types/core-js": "^0.9.43",
     "@types/date-fns": "^2.6.0",
     "@types/grunt": "^0.4.22",
-    "@types/lodash": "^4.14.77",
     "@types/mocha": "^2.2.43",
     "@types/sinon": "^2.3.5",
     "@types/sinon-chai": "^2.7.29",

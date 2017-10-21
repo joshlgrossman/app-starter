@@ -32,7 +32,8 @@ const config = {
       { test: /\.less$/, use: extractLess.extract({
         use: [
           { loader: 'css-loader', options: { modules: true } },
-          { loader: 'less-loader', options: { plugins: [ new CleanCssPlugin() ]}}
+          { loader: 'less-loader', options: { plugins: [ new CleanCssPlugin() ] }},
+          { loader: 'string-replace-loader', query: { search: ':host', replace: ':local(.className)' } }
         ],
         fallback: 'style-loader'
       })}

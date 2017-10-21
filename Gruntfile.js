@@ -46,7 +46,7 @@ module.exports = grunt => {
     },
 
     clean: {
-      dist: ['dist/**/*.js', '!dist/index.js', '!dist/polyfills.js']
+      dist: ['dist/**/*']
     },
 
   });
@@ -70,8 +70,8 @@ module.exports = grunt => {
 
   grunt.registerTask('build', [
     'test',
-    'webpack:dist',
-    'clean:dist'
+    'clean:dist',
+    'webpack:dist'
   ]);
 
 };

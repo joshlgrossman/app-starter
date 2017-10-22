@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanCssPlugin = require('less-plugin-clean-css');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const package = require('./package.json');
+
 const extractLess = new ExtractTextPlugin({
   filename: '[name].css'
 });
@@ -41,7 +43,9 @@ const config = {
   },
 
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: package.name.split('-').join(' ')
+    }),
     extractLess,
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'polyfills']

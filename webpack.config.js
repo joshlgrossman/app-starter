@@ -12,7 +12,7 @@ const extractLess = new ExtractTextPlugin({
 
 const config = {
   entry: {
-    index: './src/index.tsx',
+    index: './src/index.ts',
     polyfills: [
       'core-js/library/es6',
       'reflect-metadata'

@@ -33,7 +33,7 @@ const config = {
       { test: /\.tsx$/, loader: 'babel-loader!ts-loader' },
       { test: /\.less$/, use: extractLess.extract({
         use: [
-          { loader: 'css-loader', options: { modules: true } },
+          { loader: 'css-loader', options: { modules: false } },
           { loader: 'less-loader', options: { plugins: [ new CleanCssPlugin() ] }},
           { loader: 'string-replace-loader', query: { search: ':host', replace: ':local(.className)' } }
         ],

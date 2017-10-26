@@ -27,6 +27,7 @@
     "@types/axios": "^0.14.0",
     "@types/chai": "^4.0.4",
     "@types/core-js": "^0.9.43",
+    "@types/css-modules": "^1.0.0",
     "@types/date-fns": "^2.6.0",
     "@types/grunt": "^0.4.22",
     "@types/mocha": "^2.2.43",

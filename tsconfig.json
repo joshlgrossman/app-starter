@@ -2,7 +2,7 @@
 
   "compilerOptions": {
     "lib": ["es6", "dom"],
-    "types": ["reflect-metadata"],
+    "types": ["reflect-metadata", "css-modules"],
     "module": "commonjs",
     "moduleResolution": "node",
     "experimentalDecorators": true,

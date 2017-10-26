@@ -18,7 +18,9 @@
     "date-fns": "^1.29.0",
     "hyperapp": "^0.15.1",
     "inversify": "^4.3.0",
-    "reflect-metadata": "^0.1.10"
+    "monet": "^0.8.10",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.5.2"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",

@@ -3,12 +3,12 @@ TypeScript Starter Kit
 includes:
 --
  * TypeScript compilation (with TSX and decorators)
- * LESS compilation
+ * LESS compilation (with modules and CSS reset)
  * scoped CSS modules
  * hyperapp (including router and logger)
  * dependency injection with InversifyJS
  * unit testing with mocha/chai/sinon
- * RxJS and MonetJS for functional and reactive programming
+ * RxJS, MonetJS and lodash for functional and reactive programming
  * axios for HTTP requests
  * date-fns for Date manipulation
  * ES6 polyfill with core-js
@@ -18,7 +18,9 @@ includes:
 npm scripts:
 --
 `test` - runs mocha tests
+
 `build` - builds and minifies
+
 `build:dev` - builds with sourcemaps
 
 css modules:

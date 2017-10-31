@@ -18,8 +18,6 @@
     "core-js": "^2.5.1",
     "date-fns": "^1.29.0",
     "hyperapp": "^0.15.1",
-    "hyperapp-dot-notation-reducer": "0.0.3",
-    "hyperapp-persist": "^3.1.0",
     "inversify": "^4.3.0",
     "lodash": "^4.17.4",
     "monet": "^0.8.10",

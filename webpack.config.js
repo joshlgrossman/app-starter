@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanCssPlugin = require('less-plugin-clean-css');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HappyPack = require('happypack');
+const ForkTypeScript = require('fork-ts-checker-webpack-plugin');
 
 const package = require('./package.json');
 
@@ -29,8 +31,7 @@ const config = {
 
   module: {
     rules: [
-      { test: /\.ts$/, loader: 'ts-loader' },
-      { test: /\.tsx$/, loader: 'babel-loader!ts-loader' },
+      { test: /\.ts(x?)$/, exclude: /node_modules/ , loader: 'happypack/loader?id=ts' },
       { test: /\.less$/, use: extractLess.extract({
         use: [
           { loader: 'css-loader', options: { modules: false } },
@@ -43,8 +44,18 @@ const config = {
   },
 
   plugins: [
+    new ForkTypeScript({
+      checkSyntacticErrors: true,
+      watch: './src'
+    }),
+    new HappyPack({
+      id: 'ts',
+      threads: 2,
+      loaders: [{ path: 'babel-loader' }, { path: 'ts-loader', query: { happyPackMode: true } }]
+    }),
     new HtmlWebpackPlugin({
-      title: package.name.split('-').join(' ')
+      title: package.name.split('-').join(' '),
+      minify: { collapseWhitespace: true }
     }),
     extractLess,
     new webpack.optimize.CommonsChunkPlugin({

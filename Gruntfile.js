@@ -24,9 +24,17 @@ module.exports = grunt => {
       files: {
         src: [
           'src/**/*.ts',
+          'src/**/*.tsx',
           '!src**/*.spec.ts'
         ]
       }
+    },
+
+    eslint: {
+      options: {
+        configFile: 'eslint.json'
+      },
+      files: { src: ['src/**/*.js', 'src/**/*.jsx'] }
     },
 
     mochaTest: {
@@ -53,6 +61,7 @@ module.exports = grunt => {
 
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-tslint');
+  grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-prettier');
@@ -60,6 +69,7 @@ module.exports = grunt => {
   grunt.registerTask('test', [
     'prettier',
     'tslint',
+    'eslint',
     'mochaTest'
   ]);
 

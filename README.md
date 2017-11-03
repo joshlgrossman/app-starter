@@ -3,6 +3,7 @@ TypeScript Starter Kit
 includes:
 --
  * TypeScript compilation (with TSX and decorators)
+ * Babel compilation (with JSX)
  * LESS compilation (with modules and CSS reset)
  * scoped CSS modules
  * hyperapp (including router and logger)
@@ -13,7 +14,7 @@ includes:
  * date-fns for Date manipulation
  * ES6 polyfill with core-js
  * grunt + webpack (with happypack for parallel processing)
- * tslint + prettier
+ * tslint/eslint + prettier
 
 npm scripts:
 --

@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanCssPlugin = require('less-plugin-clean-css');
@@ -14,7 +15,7 @@ const extractLess = new ExtractTextPlugin({
 
 const config = {
   entry: {
-    index: './src/index.ts',
+    index: fs.existsSync('./src/index.ts') ? './src/index.ts' : './src/index.js',
     polyfills: [
       'core-js/library/es6',
       'reflect-metadata'
@@ -26,12 +27,13 @@ const config = {
   },
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.less']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.less']
   },
 
   module: {
     rules: [
-      { test: /\.ts(x?)$/, exclude: /node_modules/ , loader: 'happypack/loader?id=ts' },
+      { test: /\.ts(x?)$/, exclude: /node_modules/, loader: 'happypack/loader?id=ts' },
+      { test: /\.js(x?)$/, exclude: /node_modules/, loader: 'babel-loader' },
       { test: /\.less$/, use: extractLess.extract({
         use: [
           { loader: 'css-loader', options: { modules: false } },
@@ -51,7 +53,15 @@ const config = {
     new HappyPack({
       id: 'ts',
       threads: 2,
-      loaders: [{ path: 'babel-loader' }, { path: 'ts-loader', query: { happyPackMode: true } }]
+      loaders: [
+        { path: 'babel-loader' },
+        { 
+          path: 'ts-loader',
+          options: { 
+            happyPackMode: true 
+          } 
+        }
+      ]
     }),
     new HtmlWebpackPlugin({
       title: package.name.split('-').join(' '),

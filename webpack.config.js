@@ -17,6 +17,7 @@ const config = {
   entry: {
     index: fs.existsSync('./src/index.ts') ? './src/index.ts' : './src/index.js',
     polyfills: [
+      'tslib',
       'core-js/library/es6',
       'reflect-metadata'
     ]
@@ -32,8 +33,7 @@ const config = {
 
   module: {
     rules: [
-      { test: /\.ts(x?)$/, exclude: /node_modules/, loader: 'happypack/loader?id=ts' },
-      { test: /\.js(x?)$/, exclude: /node_modules/, loader: 'babel-loader' },
+      { test: /\.(j|t)s(x?)$/, exclude: /node_modules/, loader: 'happypack/loader?id=ts' },
       { test: /\.less$/, use: extractLess.extract({
         use: [
           { loader: 'css-loader', options: { modules: false } },
@@ -57,7 +57,7 @@ const config = {
         { path: 'babel-loader' },
         { 
           path: 'ts-loader',
-          options: { 
+          query: { 
             happyPackMode: true 
           } 
         }
@@ -69,7 +69,7 @@ const config = {
     }),
     extractLess,
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'polyfills']
+      name: ['index', 'polyfills']
     })
   ]
 };

@@ -13,7 +13,7 @@ module.exports = grunt => {
         ...prettier
       },
       files: {
-        src: ['src/**/*.ts']
+        src: ['src/**/*.ts', 'src/**/*.tsx','src/**/*.js', 'src/**/*.jsx']
       }
     },
 
@@ -25,7 +25,7 @@ module.exports = grunt => {
         src: [
           'src/**/*.ts',
           'src/**/*.tsx',
-          '!src**/*.spec.ts'
+          '!src/**/*.spec.ts'
         ]
       }
     },
@@ -34,7 +34,13 @@ module.exports = grunt => {
       options: {
         configFile: 'eslint.json'
       },
-      files: { src: ['src/**/*.js', 'src/**/*.jsx'] }
+      files: { 
+        src: [
+          'src/**/*.js',
+          'src/**/*.jsx',
+          '!src/**/*.spec.js'
+        ] 
+      }
     },
 
     mochaTest: {

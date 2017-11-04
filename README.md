@@ -3,7 +3,7 @@ TypeScript Starter Kit
 includes:
 --
  * TypeScript compilation (with TSX and decorators)
- * Babel compilation (with JSX)
+ * ES6 transpilation for JS and JSX
  * LESS compilation (with modules and CSS reset)
  * scoped CSS modules
  * hyperapp (including router and logger)

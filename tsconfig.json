@@ -1,8 +1,10 @@
 {
 
   "compilerOptions": {
+    "allowJs": true,
     "lib": ["es6", "dom"],
     "types": ["reflect-metadata", "css-modules"],
+    "importHelpers": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "experimentalDecorators": true,

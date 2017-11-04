@@ -1,6 +1,8 @@
 const path = require('path');
 const fs = require('fs');
+const _ = require('lodash');
 const webpack = require('webpack');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanCssPlugin = require('less-plugin-clean-css');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -64,7 +66,7 @@ const config = {
       ]
     }),
     new HtmlWebpackPlugin({
-      title: package.name.split('-').join(' '),
+      title: _(package.name).split('-').map(_.capitalize).join(' '),
       minify: { collapseWhitespace: true }
     }),
     extractLess,

@@ -48,6 +48,7 @@ const config = {
   },
 
   plugins: [
+    extractLess,
     new ForkTypeScript({
       checkSyntacticErrors: true,
       watch: './src'
@@ -69,7 +70,6 @@ const config = {
       title: _(package.name).split('-').map(_.capitalize).join(' '),
       minify: { collapseWhitespace: true }
     }),
-    extractLess,
     new webpack.optimize.CommonsChunkPlugin({
       name: ['index', 'polyfills']
     })

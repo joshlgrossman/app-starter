@@ -1,12 +1,14 @@
 module.exports = grunt => {
 
   const webpack = require('./webpack.config');
-  const package = grunt.file.readJSON('package.json');
+  const pkg = grunt.file.readJSON('package.json');
   const prettier = grunt.file.readJSON('prettier.json');
   const tslint = grunt.file.readJSON('tslint.json');
 
   grunt.initConfig({
-    pkg: package,
+    pkg,
+    
+    webpack,
 
     prettier: {
       options: {
@@ -53,12 +55,7 @@ module.exports = grunt => {
       },
       src: ['src/**/*.spec.ts']
     },
-
-    webpack: {
-      dev: webpack.dev,
-      dist: webpack.dist
-    },
-
+    
     clean: {
       dist: ['dist/**/*']
     },

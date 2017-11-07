@@ -16,13 +16,13 @@
     "removeComments": true,
     "sourceMap": false,
     "downlevelIteration": true,
-    "rootDir": "./src",
+    "rootDir": "./src/client",
     "jsx": "react",
     "jsxFactory": "h"
   },
 
   "include": [
-    "src/**/*"
+    "src/client/**/*"
   ],
 
   "exclude": [

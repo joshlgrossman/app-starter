@@ -10,6 +10,7 @@ const HappyPack = require('happypack');
 const ForkTypeScript = require('fork-ts-checker-webpack-plugin');
 
 const package = require('./package.json');
+const fileType = fs.existsSync('./src/client/index.ts') ? 'ts' : 'js';
 
 const extractLess = new ExtractTextPlugin({
   filename: '[name].css'
@@ -17,7 +18,7 @@ const extractLess = new ExtractTextPlugin({
 
 const config = {
   entry: {
-    index: fs.existsSync('./src/index.ts') ? './src/index.ts' : './src/index.js',
+    index: `./src/client/index.${fileType}`,
     polyfills: [
       'tslib',
       'core-js/library/es6',
@@ -25,7 +26,7 @@ const config = {
     ]
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/client'),
     filename: '[name].js'
   },
 
@@ -51,7 +52,8 @@ const config = {
     extractLess,
     new ForkTypeScript({
       checkSyntacticErrors: true,
-      watch: './src'
+      watch: './src/client',
+      tsconfig: './tsconfig.client.json'
     }),
     new HappyPack({
       id: 'ts',
@@ -61,7 +63,8 @@ const config = {
         { 
           path: 'ts-loader',
           query: { 
-            happyPackMode: true 
+            happyPackMode: true,
+            configFile: 'tsconfig.client.json'
           } 
         }
       ]

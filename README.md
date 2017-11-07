@@ -7,6 +7,7 @@ includes:
  * LESS compilation (with modules and CSS reset)
  * scoped CSS modules
  * hyperapp (including router and logger)
+ * express with routing-controllers decorators
  * dependency injection with InversifyJS
  * unit testing with mocha/chai/sinon
  * RxJS, MonetJS and lodash for functional and reactive programming

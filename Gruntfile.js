@@ -7,8 +7,15 @@ module.exports = grunt => {
 
   grunt.initConfig({
     pkg,
-    
     webpack,
+
+    ts: {
+      default: {
+        src: ['src/server/**/*.ts', 'src/server/**/*.js'],
+        outDir: 'dist/server',
+        tsconfig: 'tsconfig.server.json'
+      }
+    },
 
     prettier: {
       options: {
@@ -66,6 +73,7 @@ module.exports = grunt => {
   grunt.loadNpmTasks('grunt-tslint');
   grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-webpack');
+  grunt.loadNpmTasks('grunt-ts');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-prettier');
 
@@ -78,12 +86,14 @@ module.exports = grunt => {
 
   grunt.registerTask('build:dev', [
     'test',
+    'ts',
     'webpack:dev'
   ]);
 
   grunt.registerTask('build', [
     'test',
     'clean:dist',
+    'ts',
     'webpack:dist'
   ]);
 

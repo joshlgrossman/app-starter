@@ -15,6 +15,7 @@ includes:
  * date-fns for Date manipulation
  * ES6 polyfill with core-js
  * grunt + webpack (with happypack for parallel processing)
+ * tree-shaking
  * tslint/eslint + prettier
 
 npm scripts:

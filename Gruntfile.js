@@ -143,17 +143,17 @@ module.exports = grunt => {
     'test:server'
   ]);
 
-  grunt.registerTask('build-client', [
+  grunt.registerTask('build:client', [
     'test:client',
     'webpack:dev'
   ]);
 
-  grunt.registerTask('start-client', [
+  grunt.registerTask('start:client', [
     'test:client',
     'webpack-dev-server'
   ]);
 
-  grunt.registerTask('build-server', [
+  grunt.registerTask('build:server', [
     'test:server',
     'ts'
   ]);

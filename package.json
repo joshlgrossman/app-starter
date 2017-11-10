@@ -9,10 +9,10 @@
   "scripts": {
     "test": "node ./node_modules/.bin/grunt test",
     "build": "node ./node_modules/.bin/grunt build",
-    "build-client": "node ./node_modules/.bin/grunt build-client",
-    "start-client": "node ./node_modules/.bin/grunt start-client",
-    "build-server": "node ./node_modules/.bin/grunt build-server",
-    "start-server": "npm run build-server && node ."
+    "build:client": "node ./node_modules/.bin/grunt build:client",
+    "start:client": "node ./node_modules/.bin/grunt start:client",
+    "build:server": "node ./node_modules/.bin/grunt build:server",
+    "start:server": "npm run build:server && node ."
   },
   "dependencies": {
     "@hyperapp/logger": "^0.2.1",

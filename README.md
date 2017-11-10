@@ -1,4 +1,4 @@
-TypeScript Starter Kit
+App Starter Kit
 ==
 includes:
 --
@@ -14,7 +14,7 @@ includes:
  * axios for HTTP requests
  * date-fns for Date manipulation
  * ES6 polyfill with core-js
- * grunt + webpack (with happypack for parallel processing)
+ * grunt + webpack/webpack-dev-server (with happypack for parallel processing)
  * tree-shaking
  * tslint/eslint + prettier
 
@@ -22,9 +22,15 @@ npm scripts:
 --
 `test` - runs mocha tests
 
-`build` - builds and minifies
+`build` - tests and builds both client and server
 
-`build:dev` - builds with sourcemaps
+`build-client` - tests, builds and minifies client
+
+`start-client` - tests, builds and serves client with webpack-dev-server
+
+`build-server` - tests and builds server
+
+`start-server` - tests, builds and starts server
 
 css modules:
 --
@@ -40,8 +46,8 @@ scoped CSS modules will generate unique classnames and be injected into the HTML
 ```js
 import styles from './example.less';
 
-export const example = (
-  <div className={styles}>Example</div>
-);
+export function ExampleComponent() {
+  return <div className={styles}>Example</div>;
+}
 ```
 

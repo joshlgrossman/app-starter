@@ -1,5 +1,5 @@
 {
-  "name": "typescript-starter",
+  "name": "app-starter",
   "version": "1.0.0",
   "description": "",
   "main": "dist/server/index.js",
@@ -7,12 +7,12 @@
   "author": "",
   "license": "ISC",
   "scripts": {
+    "test": "node ./node_modules/.bin/grunt test",
     "build": "node ./node_modules/.bin/grunt build",
     "build-client": "node ./node_modules/.bin/grunt build-client",
     "start-client": "node ./node_modules/.bin/grunt start-client",
     "build-server": "node ./node_modules/.bin/grunt build-server",
-    "start-server": "node ./node_modules/.bin/grunt build-server && node .",
-    "test": "node ./node_modules/.bin/grunt test"
+    "start-server": "npm run build-server && node ."
   },
   "dependencies": {
     "@hyperapp/logger": "^0.2.1",

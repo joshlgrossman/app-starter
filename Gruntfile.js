@@ -9,6 +9,17 @@ module.exports = grunt => {
     pkg,
     webpack,
 
+    'webpack-dev-server': {
+      options: {
+        webpack: webpack.dev,
+        progress: false,
+        port: 8000
+      },
+      default: {
+        keepalive: true
+      }
+    },
+
     ts: {
       default: {
         src: ['src/server/**/*.ts', 'src/server/**/*.js'],
@@ -21,8 +32,19 @@ module.exports = grunt => {
       options: {
         ...prettier
       },
-      files: {
-        src: ['src/**/*.ts', 'src/**/*.tsx','src/**/*.js', 'src/**/*.jsx']
+      client: {
+        src: [
+          'src/client/**/*.ts',
+          'src/client/**/*.tsx',
+          'src/client/**/*.js',
+          'src/client/**/*.jsx'
+        ]
+      },
+      server: {
+        src: [
+          'src/server/**/*.ts',
+          'src/server/**/*.js',
+        ]
       }
     },
 
@@ -30,12 +52,22 @@ module.exports = grunt => {
       options: {
         ...tslint
       },
-      files: {
-        src: [
-          'src/**/*.ts',
-          'src/**/*.tsx',
-          '!src/**/*.spec.ts'
-        ]
+      client: {
+        files: {
+          src: [
+            'src/client/**/*.ts',
+            'src/client/**/*.tsx',
+            '!src/client/**/*.spec.ts'
+          ]
+        }
+      },
+      server: {
+        files: {
+          src: [
+            'src/server/**/*.ts',
+            '!src/server/**/*.spec.ts'
+          ]
+        }
       }
     },
 
@@ -43,12 +75,22 @@ module.exports = grunt => {
       options: {
         configFile: 'eslint.json'
       },
-      files: { 
-        src: [
-          'src/**/*.js',
-          'src/**/*.jsx',
-          '!src/**/*.spec.js'
-        ] 
+      client: {
+        files: {
+          src: [
+            'src/client/**/*.js',
+            'src/client/**/*.jsx',
+            '!src/client/**/*.spec.js'
+          ]
+        }
+      },
+      server: {
+        files: {
+          src: [
+            'src/server/**/*.js',
+            '!src/server/**/*.spec.js'
+          ]
+        }
       }
     },
 
@@ -60,12 +102,17 @@ module.exports = grunt => {
           'reflect-metadata'
         ]
       },
-      src: ['src/**/*.spec.ts']
+      client: {
+        src: ['src/client/**/*.spec.ts']
+      },
+      server: {
+        src: ['src/server/**/*.spec.ts']        
+      }
     },
     
     clean: {
       dist: ['dist/**/*']
-    },
+    }
 
   });
 
@@ -77,17 +124,38 @@ module.exports = grunt => {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-prettier');
 
-  grunt.registerTask('test', [
-    'prettier',
-    'tslint',
-    'eslint',
-    'mochaTest'
+  grunt.registerTask('test:client', [
+    'prettier:client',
+    'tslint:client',
+    'eslint:client',
+    'mochaTest:client'
   ]);
 
-  grunt.registerTask('build:dev', [
-    'test',
-    'ts',
+  grunt.registerTask('test:server', [
+    'prettier:server',
+    'tslint:server',
+    'eslint:server',
+    'mochaTest:server'
+  ]);
+  
+  grunt.registerTask('test', [
+    'test:client',
+    'test:server'
+  ]);
+
+  grunt.registerTask('build-client', [
+    'test:client',
     'webpack:dev'
+  ]);
+
+  grunt.registerTask('start-client', [
+    'test:client',
+    'webpack-dev-server'
+  ]);
+
+  grunt.registerTask('build-server', [
+    'test:server',
+    'ts'
   ]);
 
   grunt.registerTask('build', [

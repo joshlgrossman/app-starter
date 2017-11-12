@@ -24,13 +24,13 @@ npm scripts:
 
 `build` - tests and builds both client and server
 
-`build-client` - tests, builds and minifies client
+`build:client` - tests, builds and minifies client
 
-`start-client` - tests, builds and serves client with webpack-dev-server
+`start:client` - tests, builds and serves client with webpack-dev-server
 
-`build-server` - tests and builds server
+`build:server` - tests and builds server
 
-`start-server` - tests, builds and starts server
+`start:server` - tests, builds and starts server
 
 css modules:
 --
@@ -44,10 +44,10 @@ scoped CSS modules will generate unique classnames and be injected into the HTML
 ```
 `example.tsx:`
 ```js
-import styles from './example.less';
+import className from './example.less';
 
 export function ExampleComponent() {
-  return <div className={styles}>Example</div>;
+  return <div className={className}>Example</div>;
 }
 ```
 

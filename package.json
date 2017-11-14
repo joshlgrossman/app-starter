@@ -15,14 +15,14 @@
     "start:server": "npm run build:server && node ."
   },
   "dependencies": {
-    "@hyperapp/logger": "^0.2.1",
+    "@hyperapp/logger": "^0.3.0",
     "@hyperapp/router": "^0.3.0",
     "axios": "^0.16.2",
     "body-parser": "^1.18.2",
     "core-js": "^2.5.1",
     "date-fns": "^1.29.0",
     "express": "^4.16.2",
-    "hyperapp": "^0.15.1",
+    "hyperapp": "^0.16.0",
     "inversify": "^4.3.0",
     "lodash": "^4.17.4",
     "monet": "^0.8.10",

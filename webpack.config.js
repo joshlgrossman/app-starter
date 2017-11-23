@@ -41,7 +41,7 @@ const config = {
         use: [
           { loader: 'css-loader', options: { modules: false } },
           { loader: 'less-loader', options: { plugins: [ new CleanCssPlugin() ] }},
-          { loader: 'string-replace-loader', query: { search: ':host', replace: ':local(.default)' } }
+          { loader: 'string-replace-loader', query: { search: ':host', replace: ':local(.className)' } }
         ],
         fallback: 'style-loader'
       })}

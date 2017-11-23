@@ -44,10 +44,10 @@ scoped CSS modules will generate unique classnames and be injected into the HTML
 ```
 `example.tsx:`
 ```js
-import className from './example.less';
+import * as styles from './example.less';
 
 export function ExampleComponent() {
-  return <div className={className}>Example</div>;
+  return <div {...styles}>Example</div>;
 }
 ```
 

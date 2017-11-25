@@ -1,34 +1,20 @@
 {
-
-  "compilerOptions": {
-    "allowJs": true,
-    "lib": ["es6", "dom"],
-    "types": ["reflect-metadata", "css-modules"],
-    "importHelpers": true,
-    "module": "es2015",
-    "target": "es2015",
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "noImplicitAny": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "noImplicitReturns": true,
-    "removeComments": true,
-    "sourceMap": false,
-    "downlevelIteration": true,
-    "rootDir": "./src/client",
-    "jsx": "react",
-    "jsxFactory": "h"
-  },
-
-  "include": [
-    "src/client/**/*"
-  ],
-
-  "exclude": [
-    "node_modules",
-    "node_modules/@types"
-  ]
-
-}
+  
+    "extends": "./tsconfig.json",
+  
+    "compilerOptions": {
+      "module": "es2015",
+      "target": "es2015",
+      "rootDir": "./src/client"
+    },
+  
+    "include": [
+      "src/client/**/*"
+    ],
+  
+    "exclude": [
+      "node_modules",
+      "node_modules/@types"
+    ]
+  
+  }

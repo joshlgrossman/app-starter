@@ -1,0 +1,37 @@
+{
+  
+    "compilerOptions": {
+      "allowJs": true,
+      "lib": ["es6", "dom"],
+      "types": ["reflect-metadata", "css-modules"],
+      "importHelpers": true,
+      "module": "commonjs",
+      "target": "es5",
+      "moduleResolution": "node",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "noImplicitAny": false,
+      "noUnusedLocals": true,
+      "noUnusedParameters": false,
+      "noImplicitReturns": true,
+      "removeComments": true,
+      "sourceMap": false,
+      "downlevelIteration": true,
+      "rootDir": "./src",
+      "jsx": "react",
+      "jsxFactory": "h"
+    },
+  
+    "include": [
+      "src/client/**/*.ts",
+      "src/client/**/*.js",
+      "src/server/**/*.ts",
+      "src/server/**/*.js"
+    ],
+  
+    "exclude": [
+      "node_modules",
+      "node_modules/@types"
+    ]
+  
+  }

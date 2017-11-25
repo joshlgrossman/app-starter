@@ -1,31 +1,20 @@
 {
-
-  "compilerOptions": {
-    "allowJs": true,
-    "lib": ["es6", "dom"],
-    "types": ["reflect-metadata"],
-    "importHelpers": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "noImplicitAny": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "noImplicitReturns": true,
-    "removeComments": true,
-    "sourceMap": false,
-    "downlevelIteration": true,
-    "rootDir": "./src/server"
-  },
-
-  "include": [
-    "src/server/**/*"
-  ],
-
-  "exclude": [
-    "node_modules",
-    "node_modules/@types"
-  ]
-
-}
+  
+    "extends": "./tsconfig.json",
+  
+    "compilerOptions": {
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "rootDir": "./src/server"
+    },
+  
+    "include": [
+      "src/server/**/*"
+    ],
+  
+    "exclude": [
+      "node_modules",
+      "node_modules/@types"
+    ]
+  
+  }

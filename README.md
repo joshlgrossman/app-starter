@@ -11,7 +11,7 @@ includes:
  * dependency injection with InversifyJS
  * unit testing with mocha/chai/sinon
  * RxJS, MonetJS and lodash for functional and reactive programming
- * axios for HTTP requests
+ * axios for HTTP requests with moxios for testing
  * date-fns for Date manipulation
  * ES6 polyfill with core-js
  * grunt + webpack/webpack-dev-server (with happypack for parallel processing)

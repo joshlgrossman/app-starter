@@ -103,10 +103,10 @@ module.exports = grunt => {
         ]
       },
       client: {
-        src: ['src/client/**/*.spec.ts', 'src/client/**/*.spec.js']
+        src: ['test/client/**/*.spec.ts', 'test/client/**/*.spec.js']
       },
       server: {
-        src: ['src/server/**/*.spec.ts', 'src/server/**/*.spec.ts']
+        src: ['test/server/**/*.spec.ts', 'test/server/**/*.spec.ts']
       }
     },
     

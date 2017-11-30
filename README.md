@@ -9,6 +9,7 @@ includes:
  * hyperapp (including router and logger)
  * express with routing-controllers decorators
  * dependency injection with InversifyJS
+ * mongoose for MongoDB
  * unit testing with mocha/chai/sinon
  * RxJS, MonetJS and lodash for functional and reactive programming
  * axios for HTTP requests with moxios for testing

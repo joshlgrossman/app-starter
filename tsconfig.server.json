@@ -16,7 +16,8 @@
       "node_modules",
       "node_modules/@types",
       "src/client/**/*",
-      "test/client/**/*"
+      "test/client/**/*",
+      "test/server/**/*"
     ]
   
   }

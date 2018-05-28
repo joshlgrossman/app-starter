@@ -22,7 +22,7 @@
     "core-js": "^2.5.1",
     "date-fns": "^1.29.0",
     "express": "^4.16.2",
-    "hyperapp": "^0.16.0",
+    "hyperapp": "^1.2.5",
     "inversify": "^4.3.0",
     "lodash": "^4.17.4",
     "monet": "^0.8.10",
@@ -78,7 +78,7 @@
     "ts-loader": "^3.0.2",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
-    "typescript": "^2.6.1",
+    "typescript": "^2.8.3",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   }
